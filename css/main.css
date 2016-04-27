@@ -1,0 +1,11 @@
+.student{
+    transition: background 0.5s;
+}
+
+.boy{
+    background: lightblue;
+}
+
+.girl{
+    background: pink;
+}
