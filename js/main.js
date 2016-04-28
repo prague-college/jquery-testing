@@ -14,11 +14,10 @@ $(document).ready(function(){
     var weightHolder = $('.weightHolder');
     var studentForm = $('.student');
     var button = $('.update');
-
-    button.click(function(){
-        console.log(Student);
-        Student.age = Student.age + 1;
-        Student.weight
+    
+    var getOlder = function(age){
+        
+        Student.age = age;
 
         if(Student.age > 11 && Student.age < 25){
             Student.name = "Bob";
@@ -52,8 +51,21 @@ $(document).ready(function(){
         nameHolder.html(Student.name);
         breedHolder.html(Student.breed);
         weightHolder.html(Student.weight + 'kg');
-    });
+    };
 
+    button.click(function(){
+        getOlder(Student.age + 1);
+    });
+    
+    $(window).on('scroll', function(){
+        console.log($(window).scrollTop());
+        
+        var top = $(window).scrollTop();
+        
+        var newAge = top / 18;
+        
+        getOlder(newAge);
+    });
 });
 
 
